@@ -98,7 +98,7 @@
                     </div>
                 </div>
             </div>
-            <button id = "book" onclick="bookNow()" class="btn-style">Book Now</button>
+            <button id = "book" ondblclick="bookNow()" class="btn-style">Book Now</button>
         </div>
 
         <div class="booking-content">
@@ -113,9 +113,6 @@
             You have done this successfully...<br>
             Keep enjoying...</h1><br><br>
             <img src="images/congratulation.gif">
-
-        
-
     </div>
 
 <script>
@@ -179,23 +176,27 @@
     }
 }
 
-const bookBtn = document.getElementById("book");
-bookBtn.addEventListener("click", function(){
+    const bookBtn = document.getElementById("book");
+    bookBtn.addEventListener("dblclick" , function (){
+        const formArea = document.getElementById("form-area");
+        formArea.style.display = "none";
 
-const formArea = document.getElementById("form-area");
-formArea.style.display = "none";
-
-const congratulatedArea = document.getElementById("congratulated-area");
-congratulatedArea.style.display = "block";
+        const congratulatedArea = document.getElementById("congratulated-area");
+        congratulatedArea.style.display = "block";
 
 })
 
-
+function bookNow(){
+    const totalPrice = parseInt(document.getElementById('total-price').innerText);
+     
+    if (totalPrice == 0) {
+        alert("You haven't selected yet")
+        event.stopImmediatePropagation();
+    } else {
+        alert("You have to pay $" +  totalPrice)
+    }
+}
 
 </script>
-
-
-
 </body>
-
 </html>

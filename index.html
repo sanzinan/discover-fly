@@ -189,10 +189,12 @@
 function bookNow(){
     const totalPrice = parseInt(document.getElementById('total-price').innerText);
      
-    if (totalPrice == 0) {
+    if (totalPrice == 0 ) {
         alert("You haven't selected yet")
         event.stopImmediatePropagation();
-    } else {
+    }
+    
+    else {
         alert("You have to pay $" +  totalPrice)
     }
 }
